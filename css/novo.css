@@ -294,7 +294,7 @@ textarea {
 
 .navbar__link {
   padding: 0.35rem 0.9rem;
-  border-radius: 999px;
+  border-radius: 10px;
   font-size: 0.9rem;
   color: var(--color-text-muted);
   transition: background-color var(--transition-fast),
@@ -707,8 +707,10 @@ textarea {
 
   .navbar__menu {
     position: fixed;
-    inset: 3.6rem 1.2rem auto 1.2rem;
+    inset: 6.2rem 1.2rem auto 1.2rem;
     border-radius: 1rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: rgba(15, 23, 42, 0.97);
     border: 1px solid rgba(15, 23, 42, 0.9);
     flex-direction: column;
