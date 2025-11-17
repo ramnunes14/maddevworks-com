@@ -8,7 +8,7 @@
       name="description"
       content="Transformamos ideias em experiências visuais únicas. Sites, redes sociais e conteúdo criativo para destacar sua empresa com exclusividade e valor."
     />
-    <link rel="icon" href="images/faviconv2.png" type="image/png" />
+
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,9 +19,9 @@
 
     <!-- CSS principal (novo, sem Webflow) -->
     <link rel="stylesheet" href="css/novo.css" />
-
-    
-    
+    <link rel="icon" href="images/faviconv2.png" type="image/png" />
+    <link rel="shortcut icon" href="images/faviconv2.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/app-icon.png" />
   </head>
   <body>
     <!-- Navegação -->
@@ -31,6 +31,8 @@
           <img
             src="images/logo_header.png"
             alt="Maddevworks"
+            width="200"
+            height="50"
             class="navbar__logo-image"
           />
         </a>
@@ -65,6 +67,24 @@
             poder da criatividade para impulsionar negócios.
           </p>
         </header>
+      </div>
+    </section>
+
+    <!-- Vídeo Showcase -->
+    <section class="section section--video">
+      <div class="container container--narrow">
+        <div class="video-wrapper">
+          <button class="video-sound-toggle" id="soundButton">Ativar som</button>
+          <video
+            class="video-element"
+            id="heroVideo"
+            src="videos/intro1.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+        </div>
       </div>
     </section>
 
@@ -431,6 +451,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-
   </body>
 </html>

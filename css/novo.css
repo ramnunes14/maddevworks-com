@@ -66,6 +66,50 @@ textarea {
   --transition-fast: 150ms ease-out;
 }
 
+.section--video {
+  padding-top: 0;
+}
+
+.video-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.video-element {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.video-sound-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(2, 6, 23, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.video-sound-toggle:hover {
+  background-color: rgba(2, 6, 23, 0.92);
+  transform: translateY(-2px);
+}
 /* Layout base */
 .container {
   width: 100%;
