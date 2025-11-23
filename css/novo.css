@@ -23,6 +23,67 @@ body {
   background-color: #020617;
   color: #e5e7eb;
   line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.has-animated-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    #020617,
+    #0b1120,
+    #062441,
+    #0f172a,
+    #1d4ed8,
+    #4c1d95,
+    #04122b
+  );
+  background-size: 360% 360%;
+  animation: gradientFlow 18s ease-in-out infinite;
+  z-index: -2;
+  opacity: 0.95;
+}
+
+body.has-animated-bg::after {
+  content: "";
+  position: fixed;
+  width: 55vw;
+  height: 55vw;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(76, 29, 149, 0.52) 0%,
+    rgba(56, 189, 248, 0.35) 35%,
+    rgba(2, 6, 23, 0) 70%
+  );
+  filter: blur(120px);
+  opacity: 0.8;
+  z-index: -1;
+  animation: blobDrift 40s ease-in-out infinite;
+}
+
+@keyframes blobDrift {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  25% {
+    transform: translate(-35%, -60%) scale(1.15);
+  }
+  50% {
+    transform: translate(-50%, -30%) scale(0.85);
+  }
+  75% {
+    transform: translate(-65%, -55%) scale(1.25);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 a {
@@ -64,6 +125,18 @@ textarea {
   --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.6);
   --container-width: 1120px;
   --transition-fast: 150ms ease-out;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .section--video {
