@@ -196,7 +196,37 @@ textarea {
 }
 
 .section {
-  padding: 4.5rem 0;
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.section-shell {
+  width: 100%;
+  background: rgba(2, 6, 23, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1.8rem;
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(18px);
+}
+
+.section-shell--accent {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.13),
+    rgba(76, 29, 149, 0.32)
+  );
+  border-color: rgba(56, 189, 248, 0.32);
+  box-shadow: 0 30px 95px rgba(4, 18, 43, 0.65);
+}
+
+.section-shell--transparent {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
 }
 
 .section--hero {
