@@ -24,13 +24,17 @@ body {
   color: #e5e7eb;
   line-height: 1.6;
   min-height: 100vh;
-  position: relative;
   overflow-x: hidden;
 }
 
-body.has-animated-bg::before {
+.has-animated-bg {
+  position: relative;
+  z-index: 0;
+}
+
+.has-animated-bg::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: linear-gradient(
     125deg,
@@ -48,9 +52,9 @@ body.has-animated-bg::before {
   opacity: 0.95;
 }
 
-body.has-animated-bg::after {
+.has-animated-bg::after {
   content: "";
-  position: fixed;
+  position: absolute;
   width: 55vw;
   height: 55vw;
   top: 15%;
