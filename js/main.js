@@ -9,9 +9,12 @@
     });
   }
 
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
+  const yearTargets = document.querySelectorAll("[data-current-year]");
+  if (yearTargets.length) {
+    const currentYear = new Date().getFullYear();
+    yearTargets.forEach((target) => {
+      target.textContent = currentYear;
+    });
   }
 
   const video = document.getElementById("heroVideo");
@@ -30,5 +33,42 @@
         soundButton.textContent = "Ativar Som";
       }
     });
+  }
+
+  const elfsightTarget = document.querySelector("[data-elfsight-app-lazy]");
+  if (elfsightTarget) {
+    const elfsightSrc =
+      elfsightTarget.getAttribute("data-elfsight-src") ||
+      "https://elfsightcdn.com/platform.js";
+    let scriptLoaded = false;
+
+    const loadElfsight = () => {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      const script = document.createElement("script");
+      script.src = elfsightSrc;
+      script.async = true;
+      script.setAttribute("data-lazy-loaded", "true");
+      document.head.appendChild(script);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadElfsight();
+              obs.disconnect();
+            }
+          });
+        },
+        { rootMargin: "200px" }
+      );
+      observer.observe(elfsightTarget);
+    } else {
+      loadElfsight();
+    }
   }
 })();

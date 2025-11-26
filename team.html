@@ -20,6 +20,7 @@
     />
 
     <!-- CSS principal (o mesmo do index) -->
+    <link rel="preload" href="css/novo.css" as="style" />
     <link rel="stylesheet" href="css/novo.css" />
   </head>
   <body>
@@ -33,6 +34,8 @@
             width="200"
             height="50"
             class="navbar__logo-image"
+            decoding="async"
+            fetchpriority="high"
           />
         </a>
 
@@ -74,6 +77,7 @@
                   src="images/img_9346-202-min.jpg"
                   alt="Ricardo Nunes"
                   loading="lazy"
+                  decoding="async"
                   class="team-card__image"
                 />
               </div>
@@ -90,6 +94,7 @@
                   src="images/img_9346-205-min.jpg"
                   alt="Manuel Fernandes"
                   loading="lazy"
+                  decoding="async"
                   class="team-card__image"
                 />
               </div>
@@ -106,6 +111,7 @@
                   src="images/img_9346-204-min.jpg"
                   alt="Hugo Mendes"
                   loading="lazy"
+                  decoding="async"
                   class="team-card__image"
                 />
               </div>
@@ -122,6 +128,7 @@
                   src="images/img_9352-202-min.jpg"
                   alt="Tiago Freitas"
                   loading="lazy"
+                  decoding="async"
                   class="team-card__image"
                 />
               </div>
@@ -136,6 +143,7 @@
                   src="images/jbsousa.png"
                   alt="Tiago Freitas"
                   loading="lazy"
+                  decoding="async"
                   class="team-card__image"
                 />
               </div>
@@ -216,7 +224,9 @@
             src="images/logo_header.png"
             alt="Maddevworks"
             width="160"
+            height="40"
             loading="lazy"
+            decoding="async"
           />
           <p class="paragraph paragraph--small paragraph--muted">
             Maddevworks — Websites, redes sociais e conteúdo criativo para
@@ -271,8 +281,8 @@
       <div class="footer__bottom">
         <div class="container footer__bottom-inner">
           <p class="paragraph paragraph--tiny paragraph--muted">
-            © <span id="year-team"></span> Maddevworks. Todos os direitos
-            reservados.
+            © <span id="year-team" data-current-year></span> Maddevworks. Todos
+            os direitos reservados.
           </p>
         </div>
       </div>

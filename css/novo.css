@@ -143,6 +143,13 @@ textarea {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .has-animated-bg::before,
+  .has-animated-bg::after {
+    animation: none;
+  }
+}
+
 .section--video {
   padding-top: 0;
 }

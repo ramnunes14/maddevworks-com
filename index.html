@@ -18,9 +18,11 @@
     />
 
     <!-- CSS principal (novo, sem Webflow) -->
+    <link rel="preload" href="css/novo.css" as="style" />
     <link rel="stylesheet" href="css/novo.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
+  </head>
   <body>
     <!-- Navegação -->
     <header class="navbar">
@@ -32,6 +34,8 @@
             width="200"
             height="50"
             class="navbar__logo-image"
+            decoding="async"
+            fetchpriority="high"
           />
         </a>
 
@@ -82,6 +86,7 @@
             muted
             loop
             playsinline
+            preload="metadata"
           ></video>
         </div>
       </div>
@@ -129,7 +134,9 @@
                   src="images/img_7043-5-2.png"
                   alt="Restaurante X Tonel"
                   width="50"
+                  height="50"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="client-card__actions">
@@ -159,7 +166,9 @@
                   src="images/689642ca6cd28e59cb667371_imagem-20whatsapp-202025-08-08-20a-cc-80s-2009.10.44_6bb132f3-p-500.jpg"
                   alt="Sublime Shuttle"
                   width="50"
+                  height="50"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="client-card__actions">
@@ -189,7 +198,9 @@
                   src="images/images.png"
                   alt="Casa do Farol"
                   width="50"
+                  height="50"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="client-card__actions">
@@ -223,7 +234,9 @@
               src="images/img_7043-5-2.png"
               alt="Restaurante X Tonel"
               width="91"
+              height="91"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="testimonial__info">
@@ -240,10 +253,10 @@
     <section class="section section--neutral">
       <div class="container">
         <div class="embed">
-          <script src="https://elfsightcdn.com/platform.js" async></script>
           <div
             class="elfsight-app-c84406c2-e6f7-4d9b-82ae-49a79b2d5397"
             data-elfsight-app-lazy
+            data-elfsight-src="https://elfsightcdn.com/platform.js"
           ></div>
         </div>
       </div>
@@ -391,7 +404,9 @@
             src="images/logo_header.png"
             alt="Maddevworks"
             width="160"
+            height="40"
             loading="lazy"
+            decoding="async"
           />
           <p class="paragraph paragraph--small paragraph--muted">
             Maddevworks — Websites, redes sociais e conteúdo criativo para
@@ -444,7 +459,8 @@
       <div class="footer__bottom">
         <div class="container footer__bottom-inner">
           <p class="paragraph paragraph--tiny paragraph--muted">
-            © <span id="year"></span> Maddevworks. Todos os direitos reservados.
+            © <span id="year" data-current-year></span> Maddevworks. Todos os
+            direitos reservados.
           </p>
         </div>
       </div>
