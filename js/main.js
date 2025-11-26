@@ -19,71 +19,19 @@
 
   const video = document.getElementById("heroVideo");
   const soundButton = document.getElementById("soundButton");
-  const playButton = document.getElementById("videoPlayButton");
-  let videoLoaded = false;
-
-  const updateSoundButtonLabel = () => {
-    if (soundButton && video) {
-      soundButton.textContent = video.muted ? "Ativar Som" : "Desativar Som";
-    }
-  };
-
-  const enableSoundButton = () => {
-    if (soundButton) {
-      soundButton.disabled = false;
-      updateSoundButtonLabel();
-    }
-  };
-
-  const loadVideoSource = () => {
-    if (!video || videoLoaded) {
-      return Promise.resolve();
-    }
-
-    const source = video.dataset.src;
-    if (!source) {
-      return Promise.resolve();
-    }
-
-    videoLoaded = true;
-    return new Promise((resolve) => {
-      const handleLoaded = () => {
-        video.removeEventListener("loadeddata", handleLoaded);
-        resolve();
-      };
-
-      video.addEventListener("loadeddata", handleLoaded);
-      video.src = source;
-      video.load();
-    });
-  };
-
-  if (playButton && video) {
-    playButton.addEventListener("click", async () => {
-      playButton.disabled = true;
-      playButton.textContent = "A carregar…";
-
-      await loadVideoSource();
-      try {
-        await video.play();
-      } catch (error) {
-        console.warn("Não foi possível reproduzir automaticamente o vídeo.", error);
-      }
-
-      playButton.classList.add("video-play-toggle--hidden");
-      enableSoundButton();
-    });
-  }
 
   if (video && soundButton) {
     soundButton.addEventListener("click", () => {
-      if (soundButton.disabled) {
-        return;
+      if (video.muted) {
+        video.muted = false;
+        video.currentTime = 0;
+        video.play();
+        soundButton.textContent = "Desativar Som";
+      } else {
+        video.muted = true;
+        video.play();
+        soundButton.textContent = "Ativar Som";
       }
-
-      video.muted = !video.muted;
-      video.play();
-      updateSoundButtonLabel();
     });
   }
 

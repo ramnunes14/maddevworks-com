@@ -89,31 +89,17 @@
       <!-- Vídeo Showcase -->
       <section class="section section--video">
         <div class="container container--narrow">
-          <div class="video-wrapper" data-video-wrapper>
-            <button
-              class="video-sound-toggle"
-              id="soundButton"
-              type="button"
-              disabled
-            >
-              Ativar som
-            </button>
-            <button
-              class="video-play-toggle"
-              id="videoPlayButton"
-              type="button"
-            >
-              Play
-            </button>
+          <div class="video-wrapper">
+            <button class="video-sound-toggle" id="soundButton">Ativar som</button>
             <video
               class="video-element"
               id="heroVideo"
-              data-src="videos/intro1.mp4"
-              poster="images/image.png"
+              src="videos/intro1.mp4"
+              autoplay
               muted
               loop
               playsinline
-              preload="none"
+              preload="metadata"
             ></video>
           </div>
         </div>
