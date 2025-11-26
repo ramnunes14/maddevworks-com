@@ -180,13 +180,13 @@ textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--color-primary);
-  border: none;
+  background-color: rgba(2, 6, 23, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  padding: 0.55rem 1rem;
   border-radius: var(--radius-pill);
-  padding: 0.85rem 2.3rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-primary-text);
+  font-size: 0.9rem;
+  color: #fff;
   cursor: pointer;
   z-index: 12;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
@@ -377,10 +377,8 @@ textarea {
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform 130ms ease-out;
+    color var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast), transform 130ms ease-out;
   white-space: nowrap;
 }
 
@@ -600,8 +598,7 @@ textarea {
   background-color: rgba(15, 23, 42, 0.9);
   color: #e5e7eb;
   transition: background-color var(--transition-fast),
-    color var(--transition-fast),
-    transform 140ms ease-out;
+    color var(--transition-fast), transform 140ms ease-out;
 }
 
 .icon-button:hover {
@@ -656,8 +653,7 @@ textarea {
   font-size: 0.92rem;
   outline: none;
   transition: border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
+    box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
 .form__input::placeholder {
