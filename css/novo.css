@@ -163,6 +163,8 @@ textarea {
   overflow: hidden;
   max-width: 720px;
   margin: 0 auto;
+  min-height: 360px;
+  background: rgba(2, 6, 23, 0.85);
 }
 
 .video-element {
@@ -171,6 +173,33 @@ textarea {
   display: block;
   border-radius: var(--radius-lg);
   object-fit: cover;
+}
+
+.video-play-toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.85rem 2.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-text);
+  cursor: pointer;
+  z-index: 12;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.video-play-toggle:hover {
+  transform: translate(-50%, -52%);
+}
+
+.video-play-toggle--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.97);
 }
 
 .video-sound-toggle {
@@ -193,6 +222,13 @@ textarea {
 .video-sound-toggle:hover {
   background-color: rgba(2, 6, 23, 0.92);
   transform: translateY(-2px);
+}
+
+.video-sound-toggle:disabled,
+.video-sound-toggle:disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 /* Layout base */
 .container {
