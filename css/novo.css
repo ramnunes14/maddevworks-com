@@ -417,7 +417,7 @@ textarea {
 }
 
 .official-tool__badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.35rem 1rem;
