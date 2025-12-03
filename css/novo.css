@@ -1260,6 +1260,7 @@ textarea {
   .navbar__menu {
     position: fixed;
     inset: 6.2rem 0 0 0;
+    width: 100vw;
     border-radius: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
