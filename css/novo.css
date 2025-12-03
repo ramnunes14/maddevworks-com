@@ -1259,8 +1259,8 @@ textarea {
 
   .navbar__menu {
     position: fixed;
-    inset: 6.2rem 1.2rem auto 1.2rem;
-    border-radius: 1rem;
+    inset: 6.2rem 0 0 0;
+    border-radius: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: var(--surface-glass-strong);
