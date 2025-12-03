@@ -339,11 +339,16 @@ textarea {
   background: var(--surface-glass-strong);
   border: 1px solid rgba(15, 23, 42, 0.8);
   box-shadow: var(--shadow-subtle);
+  padding: 3.5rem 0;
 }
 
 .section--work .paragraph--muted {
   max-width: 52rem;
   margin-inline: auto;
+}
+
+.section--work + .section--work {
+  margin-top: 2rem;
 }
 
 .section--accent {
