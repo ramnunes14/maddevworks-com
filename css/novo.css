@@ -1230,6 +1230,14 @@ textarea {
     padding: 3.5rem 0;
   }
 
+  .section--work {
+    padding: 3rem 0;
+  }
+
+  .section--work + .section--work {
+    margin-top: 3rem;
+  }
+
   .form-card {
     padding: 1.6rem 1.4rem;
   }
