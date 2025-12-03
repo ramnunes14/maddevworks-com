@@ -1259,8 +1259,10 @@ textarea {
 
   .navbar__menu {
     position: fixed;
-    inset: 6.2rem 0 0 0;
-    width: 100vw;
+    top: 6.2rem;
+    left: 0;
+    right: 0;
+    width: 100%;
     max-height: calc(100vh - 6.2rem);
     border-radius: 0;
     border-top-left-radius: 0;
@@ -1275,6 +1277,7 @@ textarea {
     transform: scaleY(0.9);
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     overflow-y: auto;
     transition: opacity 140ms ease-out, transform 140ms ease-out;
   }
@@ -1283,6 +1286,7 @@ textarea {
     opacity: 1;
     transform: scaleY(1);
     pointer-events: auto;
+    visibility: visible;
   }
 
   .grid--2-cols,
