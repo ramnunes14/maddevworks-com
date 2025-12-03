@@ -21,7 +21,81 @@
   const soundButton = document.getElementById("soundButton");
 
   if (video && soundButton) {
+    const dataSrc = video.getAttribute("data-src");
+    const connection =
+      navigator.connection ||
+      navigator.mozConnection ||
+      navigator.webkitConnection;
+    const prefersReducedMotion = window.matchMedia
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
+    const isDataSaver =
+      !!connection &&
+      (connection.saveData ||
+        /2g/.test((connection.effectiveType || "").toLowerCase()));
+    const shouldLoadOnInteraction = prefersReducedMotion || isDataSaver;
+
+    const loadVideoSource = () => {
+      if (!dataSrc || video.dataset.loaded === "true") {
+        return;
+      }
+      video.src = dataSrc;
+      video.dataset.loaded = "true";
+      video.load();
+    };
+
+    const scheduleVideoLoad = () => {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => loadVideoSource(), { timeout: 1200 });
+      } else {
+        window.setTimeout(() => loadVideoSource(), 600);
+      }
+    };
+
+    if (!shouldLoadOnInteraction) {
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                scheduleVideoLoad();
+                obs.disconnect();
+              }
+            });
+          },
+          { rootMargin: "0px 0px 160px 0px" }
+        );
+        observer.observe(video);
+      } else {
+        scheduleVideoLoad();
+      }
+    } else {
+      video.removeAttribute("autoplay");
+      soundButton.textContent = "Reproduzir vídeo";
+      soundButton.setAttribute(
+        "aria-label",
+        "Carregar e reproduzir o vídeo"
+      );
+    }
+
     soundButton.addEventListener("click", () => {
+      if (!video.dataset.loaded) {
+        loadVideoSource();
+      }
+
+      if (shouldLoadOnInteraction && video.paused) {
+        video.muted = false;
+        video
+          .play()
+          .then(() => {
+            soundButton.textContent = "Desativar Som";
+          })
+          .catch(() => {
+            soundButton.textContent = "Ativar Som";
+          });
+        return;
+      }
+
       if (video.muted) {
         video.muted = false;
         video.currentTime = 0;

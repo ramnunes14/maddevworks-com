@@ -71,6 +71,31 @@
     </header>
 
     <main class="has-animated-bg">
+      <!-- Sponsors -->
+      <section class="section section--sponsors" aria-label="Patrocinadores oficiais">
+        <div
+          class="sponsor-ticker"
+          role="region"
+          aria-roledescription="mensagem em movimento"
+          aria-label="Mensagem contínua com os patrocinadores oficiais"
+        >
+          <div class="sponsor-ticker__track">
+            <span class="sponsor-ticker__item">
+              Patrocinadores oficiais · Torneio de Abertura 2026 · Inscreve-te já
+            </span>
+            <span class="sponsor-ticker__item">
+              Patrocinadores oficiais · Torneio de Abertura 2026 · Inscreve-te já
+            </span>
+            <span class="sponsor-ticker__item">
+              Patrocinadores oficiais · Torneio de Abertura 2026 · Inscreve-te já
+            </span>
+            <span class="sponsor-ticker__item">
+              Patrocinadores oficiais · Torneio de Abertura 2026 · Inscreve-te já
+            </span>
+          </div>
+        </div>
+      </section>
+
       <!-- Hero -->
       <section class="section section--hero">
         <div class="container container--narrow">
@@ -85,7 +110,7 @@
           </header>
         </div>
       </section>
-
+      
       <!-- Vídeo Showcase -->
       <section class="section section--video">
         <div class="container container--narrow">
@@ -94,12 +119,13 @@
             <video
               class="video-element"
               id="heroVideo"
-              src="videos/intro1.mp4"
+              data-src="videos/intro1.mp4"
               autoplay
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="none"
+              poster="images/43286e37-b777-4a72-981d-3c917e64b7e9.avif"
             ></video>
           </div>
         </div>
@@ -127,112 +153,184 @@
         </div>
       </section>
 
-      <!-- Clientes -->
-      <section class="section">
+
+      <section class="section section--work">
         <div class="container">
-          <header class="section-header">
+          <header class="section-header section-header--center">
+            <p class="eyebrow">Projetos recentes</p>
             <h2 class="heading heading--md">
-              Empresas com quem já trabalhamos.
+              Experiência real em cada frente digital
             </h2>
+            <p class="paragraph paragraph--muted">
+              Do conceito ao lançamento, ajudamos marcas a ganhar presença com
+              websites customizados, conteúdos sociais e produções audiovisuais.
+            </p>
           </header>
-
-          <div class="grid grid--3-cols grid--gap-medium">
-            <!-- Cliente 1 -->
-            <article class="client-card">
-              <div class="client-card__content">
-                <div class="client-card__text-group">
-                  <p class="paragraph paragraph--small paragraph--strong">
-                    Luisa Frederico e Inês
-                  </p>
-                  <p class="paragraph paragraph--small">Restaurante X Tonel</p>
-                </div>
-                <div class="client-card__logo">
-                  <img
-                    src="images/img_7043-5-2.png"
-                    alt="Restaurante X Tonel"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="client-card__actions">
-                  <a
-                    href="https://restaurantextonel.com/?lang=pt-PT"
-                    class="button button--ghost"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver resultado
-                  </a>
-                </div>
+          <article class="work-showcase work-showcase--reverse">
+            <figure class="work-showcase__media">
+              <div class="work-showcase__media-grid">
+                <img
+                  src="images/image.png"
+                  alt="Layout completo do site Restaurante X Tonel"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/43286e37-b777-4a72-981d-3c917e64b7e9.avif"
+                  alt="Mockup responsivo de landing page"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/944dadd6-1df4-4ee7-9203-7be508a496f6.avif"
+                  alt="Detalhe de UI desenvolvida pela Maddevworks"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            </article>
+            </figure>
+            <div class="work-showcase__content">
+              <p class="eyebrow">Criação de websites</p>
+              <h3 class="work-showcase__title">Experiências digitais completas</h3>
+              <p class="paragraph">
+                Websites responsivos, rápidos e prontos para converter. Trabalhamos
+                desde o planeamento UX até à otimização SEO para garantir presença
+                forte em qualquer dispositivo.
+              </p>
+              <ul class="work-showcase__list">
+                <li>Design personalizado com protótipos navegáveis.</li>
+                <li>Desenvolvimento otimizado para velocidade e segurança.</li>
+                <li>Integrações com CMS, e-commerce e automações.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
 
-            <!-- Cliente 2 -->
-            <article class="client-card">
-              <div class="client-card__content">
-                <div class="client-card__text-group">
-                  <p class="paragraph paragraph--small paragraph--strong">
-                    Fernando
-                  </p>
-                  <p class="paragraph paragraph--small">Sublime Shuttle</p>
-                </div>
-                <div class="client-card__logo">
-                  <img
-                    src="images/689642ca6cd28e59cb667371_imagem-20whatsapp-202025-08-08-20a-cc-80s-2009.10.44_6bb132f3-p-500.jpg"
-                    alt="Sublime Shuttle"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="client-card__actions">
-                  <a
-                    href="https://sublimeshuttle.com"
-                    class="button button--ghost"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver resultado
-                  </a>
-                </div>
+      <section class="section section--work">
+        <div class="container">
+          <article class="work-showcase">
+            <figure class="work-showcase__media">
+              <div class="work-showcase__media-grid">
+                <img
+                  src="images/689642ca6cd28e59cb667371_imagem-20whatsapp-202025-08-08-20a-cc-80s-2009.10.44_6bb132f3-p-500.jpg"
+                  alt="Mockup de posts de redes sociais"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/app-icon.png"
+                  alt="Design de ícones para apps e stories"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/d323a645-24c2-4abd-b8be-817d48a31d5b.avif"
+                  alt="Planeamento visual para calendário editorial"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            </article>
+            </figure>
+            <div class="work-showcase__content">
+              <p class="eyebrow">Gestão de redes sociais</p>
+              <h3 class="work-showcase__title">Presença diária com conteúdo real</h3>
+              <p class="paragraph">
+                Estratégia, produção e reporting em um só lugar. Criamos calendários,
+                visual assets, videos curtos e copy alinhados à voz da marca para
+                manter a comunidade sempre ativa.
+              </p>
+              <ul class="work-showcase__list">
+                <li>Planeamento editorial com aprovações semanais.</li>
+                <li>Design e motion adaptados a cada plataforma.</li>
+                <li>Análise de métricas e otimização de campanhas.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
 
-            <!-- Cliente 3 -->
-            <article class="client-card">
-              <div class="client-card__content">
-                <div class="client-card__text-group">
-                  <p class="paragraph paragraph--small paragraph--strong">
-                    Diogo
-                  </p>
-                  <p class="paragraph paragraph--small">Casa do Farol</p>
-                </div>
-                <div class="client-card__logo">
-                  <img
-                    src="images/images.png"
-                    alt="Casa do Farol"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="client-card__actions">
-                  <a
-                    href="https://www.instagram.com/reel/DMQSGLgCdzB/?igsh=a3R4N3R0ZXZsaWc="
-                    class="button button--ghost"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver resultado
-                  </a>
-                </div>
+      <section class="section section--work section--work--alt">
+        <div class="container">
+          <article class="work-showcase work-showcase--reverse">
+            <figure class="work-showcase__media">
+              <div class="work-showcase__media-grid">
+                <img
+                  src="images/ec811a61-2840-4fd3-9b23-10e48cb970d2.avif"
+                  alt="Frame de vídeo institucional produzido pela Maddevworks"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/43286e37-b777-4a72-981d-3c917e64b7e9.avif"
+                  alt="Storyboard para produção de vídeo"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/944dadd6-1df4-4ee7-9203-7be508a496f6.avif"
+                  alt="Detalhes de color grading em vídeo"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            </article>
-          </div>
+            </figure>
+            <div class="work-showcase__content">
+              <p class="eyebrow">Criação de vídeos</p>
+              <h3 class="work-showcase__title">Histórias visuais que prendem</h3>
+              <p class="paragraph">
+                Produzimos reels, anúncios e filmes institucionais com equipa completa:
+                guião, captação em 4K, drones e pós-produção com motion graphics.
+              </p>
+              <ul class="work-showcase__list">
+                <li>Pré-produção com storyboard e direção criativa.</li>
+                <li>Captação com cameras cinema e áudio profissional.</li>
+                <li>Edição, color grading e sound design dedicados.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--work">
+        <div class="container">
+          <article class="work-showcase">
+            <figure class="work-showcase__media">
+              <div class="work-showcase__media-grid">
+                <img
+                  src="images/img_9346-205-min.jpg"
+                  alt="Sessão fotográfica realizada pela Maddevworks"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/img_9346-204-min.jpg"
+                  alt="Retratos corporativos em ambiente externo"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="images/img_9346-202-min.jpg"
+                  alt="Detalhe de fotografia de produto"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div class="work-showcase__content">
+              <p class="eyebrow">Criação de fotografias</p>
+              <h3 class="work-showcase__title">Imagens que elevam a marca</h3>
+              <p class="paragraph">
+                Sessões em estúdio ou on location para produtos, equipa e eventos,
+                com edição profissional e entrega de banco de imagens exclusivo.
+              </p>
+              <ul class="work-showcase__list">
+                <li>Direção de arte e styling para cada produção.</li>
+                <li>Retratos corporativos, lifestyle e produto.</li>
+                <li>Entrega organizada e pronta para social e web.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -266,18 +364,7 @@
         </div>
       </section>
 
-      <!-- Instagram (Elfsight) -->
-      <section class="section section--neutral">
-        <div class="container">
-          <div class="embed">
-            <div
-              class="elfsight-app-c84406c2-e6f7-4d9b-82ae-49a79b2d5397"
-              data-elfsight-app-lazy
-              data-elfsight-src="https://elfsightcdn.com/platform.js"
-            ></div>
-          </div>
-        </div>
-      </section>
+    
 
       <!-- Contacto -->
       <section class="section section--secondary" id="contacto">
@@ -483,5 +570,14 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- Vercel Analytics snippet -->
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
