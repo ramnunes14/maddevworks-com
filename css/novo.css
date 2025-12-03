@@ -339,7 +339,7 @@ textarea {
   background: var(--surface-glass-strong);
   border: 1px solid rgba(15, 23, 42, 0.8);
   box-shadow: var(--shadow-subtle);
-  padding: 3.5rem 0;
+  padding: 3rem 0;
 }
 
 .section--work .paragraph--muted {
@@ -348,7 +348,7 @@ textarea {
 }
 
 .section--work + .section--work {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .section--accent {
@@ -743,7 +743,11 @@ textarea {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1.75rem;
+}
+
+.work-showcase:first-of-type {
+  margin-top: 0;
 }
 
 .work-showcase--reverse {
@@ -837,6 +841,10 @@ textarea {
 
   .work-showcase__content {
     padding: 1.5rem;
+  }
+
+  .work-showcase {
+    margin-top: 1.25rem;
   }
 }
 
@@ -1231,11 +1239,11 @@ textarea {
   }
 
   .section--work {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .section--work + .section--work {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .form-card {
