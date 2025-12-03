@@ -1261,6 +1261,7 @@ textarea {
     position: fixed;
     inset: 6.2rem 0 0 0;
     width: 100vw;
+    max-height: calc(100vh - 6.2rem);
     border-radius: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -1274,6 +1275,7 @@ textarea {
     transform: scaleY(0.9);
     opacity: 0;
     pointer-events: none;
+    overflow-y: auto;
     transition: opacity 140ms ease-out, transform 140ms ease-out;
   }
 
