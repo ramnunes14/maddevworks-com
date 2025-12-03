@@ -439,6 +439,9 @@ textarea {
 
 .official-tool__cta {
   margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 @media (max-width: 768px) {
@@ -446,6 +449,8 @@ textarea {
     margin-bottom: 1rem;
     font-size: 0.7rem;
     letter-spacing: 0.15em;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .official-tool__grid {
@@ -460,6 +465,7 @@ textarea {
 
   .official-tool__cta {
     margin-top: 1.5rem;
+    gap: 1rem;
   }
 }
 
