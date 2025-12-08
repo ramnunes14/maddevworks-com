@@ -916,6 +916,10 @@ section {
   transform: translateY(-2px);
 }
 
+.footer__link i {
+  font-size: 1rem;
+}
+
 .footer__copy {
   text-align: center;
   padding: 1.4rem 0 2.2rem;
