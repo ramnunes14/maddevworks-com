@@ -1,11 +1,21 @@
 (function () {
-  const toggle = document.querySelector('.navbar__toggle');
-  const menu = document.querySelector('.navbar__menu');
+  const headerToggle = document.querySelector('.header__toggle');
+  const primaryNav = document.getElementById('primary-navigation');
 
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('navbar__menu--open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
+  if (headerToggle && primaryNav) {
+    const closeMenu = () => {
+      primaryNav.classList.remove('nav--open');
+      headerToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    headerToggle.addEventListener('click', () => {
+      const isOpen = primaryNav.classList.toggle('nav--open');
+      headerToggle.classList.toggle('is-active', isOpen);
+      headerToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    primaryNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
     });
   }
 
@@ -19,6 +29,16 @@
 
   const video = document.getElementById('heroVideo');
   const soundButton = document.getElementById('soundButton');
+
+  const headerElement = document.querySelector('.header');
+  const handleHeaderBg = () => {
+    if (!headerElement) {
+      return;
+    }
+    headerElement.classList.toggle('header--scrolled', window.scrollY > 30);
+  };
+  handleHeaderBg();
+  window.addEventListener('scroll', handleHeaderBg);
 
   if (video && soundButton) {
     const dataSrc = video.getAttribute('data-src');
@@ -178,6 +198,22 @@
         })();
       }
     }
+  }
+
+  const animatedSections = document.querySelectorAll('.animated-section');
+  if (animatedSections.length) {
+    const sectionObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    animatedSections.forEach((section) => sectionObserver.observe(section));
   }
 
   const elfsightTarget = document.querySelector('[data-elfsight-app-lazy]');

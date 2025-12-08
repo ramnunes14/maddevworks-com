@@ -17,6 +17,10 @@
     />
     <link rel="preload" href="assets/css/novo.css" as="style" />
     <link rel="stylesheet" href="assets/css/novo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.1/css/all.min.css"
+    />
     <link rel="preload" href="assets/images/intro1-poster.jpg" as="image" />
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
@@ -33,14 +37,24 @@
             loading="lazy"
           />
         </a>
-        <nav class="nav" aria-label="Navegação principal">
+        <nav class="nav" id="primary-navigation" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
           <a href="#quem-somos">Quem somos</a>
           <a href="#servicos">O que fazemos</a>
           <a href="#equipa">Equipa</a>
           <a href="#contacto">Contactos</a>
         </nav>
-        <a href="mailto:info@maddevworks.com" class="button button--primary"
+        <button
+          class="header__toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <a href="mailto:maddevworks@gmail.com" class="button button--primary"
           >Iniciar projeto</a
         >
       </header>
@@ -98,7 +112,7 @@
           </div>
         </section>
 
-        <section class="about" id="quem-somos">
+        <section class="about animated-section" id="quem-somos">
           <div class="section-heading">
             <p class="eyebrow">Quem somos</p>
             <h2>Uma nave-mãe de talentos digitais.</h2>
@@ -146,9 +160,20 @@
               </p>
             </div>
           </div>
+          <div class="section__video" aria-hidden="true">
+            <video
+              class="section__video-media"
+              src="assets/videos/main.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          </div>
         </section>
 
-        <section class="projects" id="projectos">
+        <section class="projects animated-section" id="projectos">
           <div class="section-heading">
             <p class="eyebrow">Nossos</p>
             <h2>NOSSOS PROJETOS</h2>
@@ -160,9 +185,10 @@
               loading="lazy"
             />
           </div>
+          
         </section>
 
-        <section class="services" id="servicos">
+        <section class="services animated-section" id="servicos">
           <div class="section-heading">
             <p class="eyebrow">O que fazemos</p>
             <h2>Soluções que combinam rigor técnico e estética futurista.</h2>
@@ -205,9 +231,10 @@
               </ul>
             </article>
           </div>
+          
         </section>
 
-        <section class="team" id="equipa">
+        <section class="team animated-section" id="equipa">
           <div class="section-heading">
             <p class="eyebrow">Equipa</p>
             <h2>Talentos estratégicos, do design ao código.</h2>
@@ -323,12 +350,12 @@
                 <h3>Hugo Mendes</h3>
                 <p>Developer
                 </p>
-              </article>
-            </div>
+            </article>
           </div>
+        </div>
         </section>
 
-        <section class="contact" id="contacto">
+        <section class="contact animated-section" id="contacto">
           <div class="section-heading">
             <p class="eyebrow">Contactos</p>
             <h2>Pronto para desenhar o futuro da tua marca?</h2>
@@ -337,38 +364,54 @@
               a equipa.
             </p>
           </div>
-          <div class="contact__card">
-            <div class="contact__info">
+          <div class="contact__grid">
+            <div class="contact__panel">
+              <p class="contact__eyebrow">Fale diretamente com a equipa</p>
+              <h3>Estamos disponíveis todos os dias úteis</h3>
               <p>
-                <strong>Email:</strong>
-                <a href="mailto:info@maddevworks.com">info@maddevworks.com</a>
+                Envie-nos o teu briefing, partilha os teus objetivos e recebemos-te
+                com um plano realista em 48 horas. Também respondemos por WhatsApp
+                e Telegram durante o dia.
               </p>
-              <p>
-                <strong>Instagram:</strong>
-                <a
-                  href="https://ig.me/m/madevworks"
-                  target="_blank"
-                  rel="noreferrer"
-                  >@maddevworks</a
-                >
-              </p>
-              <p><strong>Telefonia:</strong> +351 912 345 678</p>
-              <p><strong>Escritório:</strong> Lisboa + Remote Worldwide</p>
+              <div class="contact__chips">
+                <span>
+                  <strong>Email</strong>
+              <a href="mailto:maddevworks@gmail.com">maddevworks@gmail.com</a>
+                </span>
+                <span>
+                  <strong>Telefone</strong>
+                  <a href="tel:+351912345678">+351 912 345 678</a>
+                </span>
+                <span>
+                  <strong>Local</strong>
+                  Remote / Worldwide
+                </span>
+              </div>
             </div>
             <form class="contact__form" action="#">
-              <label>
-                Nome
-                <input
-                  type="text"
-                  name="nome"
-                  placeholder="Joana Silva"
-                  required
-                />
-              </label>
-              <label>
-                Empresa
-                <input type="text" name="empresa" placeholder="Maddux Labs" />
-              </label>
+              <div class="contact__form-grid">
+                <label>
+                  Nome
+                  <input
+                    type="text"
+                    name="nome"
+                    placeholder="Joana Silva"
+                    required
+                  />
+                </label>
+                <label>
+                  Empresa
+                  <input type="text" name="empresa" placeholder="Maddux Labs" />
+                </label>
+                <label>
+                  Tipo de projeto
+                  <input type="text" name="projecto" placeholder="Site, app, vídeo..." />
+                </label>
+                <label>
+                  Budget estimado
+                  <input type="text" name="budget" placeholder="€10k - €30k" />
+                </label>
+              </div>
               <label>
                 Mensagem
                 <textarea
@@ -378,31 +421,49 @@
                   required
                 ></textarea>
               </label>
-              <button type="submit" class="button button--primary">
-                Enviar briefing
-              </button>
+              <div class="contact__form-actions">
+                <button type="submit" class="button button--primary">
+                  Enviar briefing
+                </button>
+                <button type="button" class="button button--ghost">
+                  Marcar discovery
+                </button>
+              </div>
             </form>
           </div>
-        </section>
+          
+          
       </main>
 
       <footer class="footer">
         <div class="footer__inner">
-          <div>
+          <div class="footer__brand">
             <strong>MadDevWorks</strong>
-            <p>
-              Web, vídeo e conteúdo com estratégia e rigor técnico. Estamos
-              prontos para elevar a tua marca.
-            </p>
+          
           </div>
-          <div class="footer__links">
-            <a href="mailto:info@maddevworks.com">info@maddevworks.com</a>
+          <div class="footer__social">
+            <a class="footer__link" href="mailto:maddevworks@gmail.com">
+              <span aria-hidden="true">✉️</span>
+              Email
+            </a>
             <a
+              class="footer__link"
               href="https://ig.me/m/madevworks"
               target="_blank"
               rel="noreferrer"
-              >Instagram</a
             >
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              Instagram
+            </a>
+            <a
+              class="footer__link"
+              href="https://github.com/madevworks"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              GitHub
+            </a>
           </div>
         </div>
         <p class="footer__copy">
