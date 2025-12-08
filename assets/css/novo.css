@@ -111,20 +111,20 @@ section {
   .header__toggle {
     width: 44px;
     height: 44px;
-    margin-top: 10px;
+    margin-left:11rem;
     align-self: flex-start;
   }
 }
 
 @media (max-width: 900px) {
   .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: transparent;
+    background: rgba(3, 5, 15, 0.5);
     border-bottom: none;
-    padding-top: 1rem;
+    padding-top: 0.6rem;
     z-index: 60;
   }
 
@@ -172,12 +172,11 @@ section {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position: absolute;
+  
   transition: background 0.3s ease, border-color 0.3s ease;
-  justify-self: end;
-  top: 50%;
-  transform: translateY(-50%);
-  right: clamp(1.25rem, 4vw, 3rem);
+  
+  
+  
   z-index: 35;
 }
 
@@ -978,9 +977,11 @@ section {
     margin-bottom: -6rem;
   }
   .header {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
     text-align: center;
     height: auto;
+    padding-bottom: 0.6rem;
   }
 
   .nav {
