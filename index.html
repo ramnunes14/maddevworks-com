@@ -178,60 +178,132 @@
             <p class="eyebrow">Nossos</p>
             <h2>NOSSOS PROJETOS</h2>
           </div>
-          <div class="projects__visual">
-            <img
-              src="assets/images/Untitled-1.png"
-              alt="Exemplo de projeto MadDevWorks"
-              loading="lazy"
-            />
+          <div class="projects__grid">
+            <article class="project-card">
+              <img
+                src="assets/images/screen1.png"
+                alt="Carvão Grill House"
+                loading="lazy"
+              />
+              <div class="project-card__body">
+                <h3>Carvão Grill House</h3>
+                <p>Landing page com vídeo hero e reservas dinamizadas.</p>
+                <a
+                  class="button button--ghost"
+                  href="https://carvaogrillhouse.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Visitar site</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <img
+                src="assets/images/screen2.png"
+                alt="Lion Voyage"
+                loading="lazy"
+              />
+              <div class="project-card__body">
+                <h3>Sublime Shuttle</h3>
+                <p>Experiência de mobilidade premium</p>
+                <a
+                  class="button button--ghost"
+                  href="https://sublimeshuttle.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Visitar site</a
+                >
+              </div>
+            </article>
+            <article class="project-card">
+              <img
+                src="assets/images/screen3.png"
+                alt="Sublime Shuttle"
+                loading="lazy"
+              />
+              <div class="project-card__body">
+                <h3>Restaurante X-Tonel</h3>
+                <p>Restaurante que mistura a cozinha britânica com a madeirense</p>
+                <a
+                  class="button button--ghost"
+                  href="https://sublimeshuttle.example"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Visitar site</a
+                >
+              </div>
+            </article>
           </div>
-          
         </section>
 
         <section class="services animated-section" id="servicos">
           <div class="section-heading">
             <p class="eyebrow">O que fazemos</p>
             <h2>Soluções que combinam rigor técnico e estética futurista.</h2>
+            <p>
+              Criamos plataformas digitais completas: do produto ao lançamento e
+              growth contínuo, tudo com storytelling, vídeo e engenharia aliados.
+            </p>
           </div>
-          <div class="service-grid">
-            <article>
-              <h3>Plataformas inteligentes</h3>
-              <p>
-                Arquiteturas escaláveis, CMS headless e experiências
-                mobile-first otimizadas para performance.
-              </p>
-              <ul>
-                <li>Research + wireframes interativos</li>
-                <li>Deploy automático e monitorização</li>
-                <li>Experiências acessíveis e seguras</li>
-              </ul>
+          <div class="service-stack">
+            <article class="service-card service-card--right">
+              <div class="service-card__content">
+                <div class="service-card__icon" aria-hidden="true"></div>
+                <h3>Plataformas inteligentes</h3>
+                <p>
+                  Arquiteturas escaláveis, CMS headless e experiências
+                  mobile-first otimizadas para performance.
+                </p>
+                <ul>
+                  <li>Research + wireframes interativos</li>
+                  <li>Deploy automático e monitorização</li>
+                  <li>Experiências acessíveis e seguras</li>
+                </ul>
+                <button class="button button--ghost" type="button">Ver arquitetura</button>
+              </div>
+              <div class="service-card__visual">
+                <img src="assets/images/vercel.png" alt="Plataforma inteligente" loading="lazy" />
+              </div>
             </article>
-            <article>
-              <h3>Experiências imersivas</h3>
-              <p>
-                Motion design, vídeo e microformatos para amplificar campanhas e
-                retenção.
-              </p>
-              <ul>
-                <li>Captação 4K & drones</li>
-                <li>Motion graphics, color grading e sonic branding</li>
-                <li>Distribuição estratégica em social</li>
-              </ul>
+            <article class="service-card service-card--left">
+              <div class="service-card__visual">
+                <img src="assets/images/motiondesign.png" alt="Experiências imersivas" loading="lazy" />
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__icon service-card__icon--waves" aria-hidden="true"></div>
+                <h3>Experiências imersivas</h3>
+                <p>
+                  Motion design, vídeo e microformatos que amplificam campanhas e
+                  fortalecem posicionamento.
+                </p>
+                <ul>
+                  <li>Captação 4K & drones</li>
+                  <li>Motion graphics, color grading e sonic branding</li>
+                  <li>Distribuição estratégica em social</li>
+                </ul>
+                <button class="button button--ghost" type="button">Ver estúdio</button>
+              </div>
             </article>
-            <article>
-              <h3>Growth ágil</h3>
-              <p>
-                Analytics, automação e experimentação constante para evoluir o
-                produto continuamente.
-              </p>
-              <ul>
-                <li>Testes A/B e mapas térmicos</li>
-                <li>Alertas de performance em tempo real</li>
-                <li>Planeamento tático de produto</li>
-              </ul>
+            <article class="service-card service-card--right">
+              <div class="service-card__content">
+                <div class="service-card__icon service-card__icon--pulse" aria-hidden="true"></div>
+                <h3>Growth ágil</h3>
+                <p>
+                  Analytics, automação e experimentação constante para evoluir o
+                  produto continuamente.
+                </p>
+                <ul>
+                  <li>Testes A/B e mapas térmicos</li>
+                  <li>Alertas de performance em tempo real</li>
+                  <li>Planeamento tático de produto</li>
+                </ul>
+                <button class="button button--ghost" type="button">Ver report</button>
+              </div>
+              <div class="service-card__visual">
+                <img src="assets/images/growth.png" alt="Growth ágil" loading="lazy" />
+              </div>
             </article>
           </div>
-          
         </section>
 
         <section class="team animated-section" id="equipa">
@@ -435,42 +507,6 @@
           
       </main>
 
-      <footer class="footer">
-        <div class="footer__inner">
-          <div class="footer__brand">
-            <strong>MadDevWorks</strong>
-          
-          </div>
-          <div class="footer__social">
-            <a class="footer__link" href="mailto:maddevworks@gmail.com">
-              <span aria-hidden="true">✉️</span>
-              Email
-            </a>
-            <a
-              class="footer__link"
-              href="https://ig.me/m/madevworks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-              Instagram
-            </a>
-            <a
-              class="footer__link"
-              href="https://github.com/madevworks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i class="fab fa-github" aria-hidden="true"></i>
-              GitHub
-            </a>
-          </div>
-        </div>
-        <p class="footer__copy">
-          © <span data-current-year></span> MadDevWorks. Todos os direitos
-          reservados.
-        </p>
-      </footer>
     </div>
 
     <script src="assets/js/main.js"></script>

@@ -252,4 +252,47 @@
       loadElfsight();
     }
   }
+  
+  const carousel = document.querySelector('.team__carousel');
+  const teamTrack = document.querySelector('.team__track');
+  if (carousel && teamTrack) {
+    const scrollResetThreshold = teamTrack.scrollWidth / 2;
+    let isPointerDown = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    const autoScroll = () => {
+      if (!isPointerDown) {
+        carousel.scrollLeft += 0.6;
+        if (carousel.scrollLeft >= scrollResetThreshold) {
+          carousel.scrollLeft = carousel.scrollLeft - scrollResetThreshold;
+        }
+      }
+      requestAnimationFrame(autoScroll);
+    };
+
+    carousel.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      isPointerDown = true;
+      startX = event.clientX;
+      startScroll = carousel.scrollLeft;
+    });
+
+    const handlePointerMove = (event) => {
+      if (!isPointerDown) return;
+      const deltaX = startX - event.clientX;
+      carousel.scrollLeft = startScroll + deltaX;
+    };
+
+    const releasePointer = () => {
+      isPointerDown = false;
+    };
+
+    carousel.addEventListener('pointermove', handlePointerMove);
+    carousel.addEventListener('pointerup', releasePointer);
+    carousel.addEventListener('pointerleave', releasePointer);
+    carousel.addEventListener('pointercancel', releasePointer);
+
+    autoScroll();
+  }
 })();
