@@ -13,7 +13,7 @@
 }
 
 * {
-  box-sizing: border-box;
+  
   margin: 0;
   padding: 0;
 }
@@ -1147,7 +1147,7 @@ section {
   background: linear-gradient(135deg, #2fd4ff, #5fa8ff);
   color: #031227;
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 22px 45px rgba(42, 175, 255, 0.35);
+  
 }
 
 .linktree__link--solid i {
