@@ -442,7 +442,7 @@ section {
 .animated-section {
   opacity: 0;
   transform: translateY(48px);
-  transition: opacity 0.95s ease, transform 0.95s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .animated-section.is-visible {

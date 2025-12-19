@@ -211,7 +211,7 @@
           }
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -120px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px 0px 0px' }
     );
     animatedSections.forEach((section) => sectionObserver.observe(section));
   }
