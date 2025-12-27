@@ -66,8 +66,8 @@ const Header = ({ activeSection }: HeaderProps) => {
       {/* Mobile Fullscreen Menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 z-[100] flex flex-col">
-          {/* Blue header section with bottom radius */}
-          <div className="bg-gradient-to-r from-primary to-[hsl(217_91%_75%)] px-6 pt-4 pb-10 rounded-b-[40px]">
+          {/* Glassmorphism header section with bottom radius */}
+          <div className="bg-[hsl(222_47%_12%/0.95)] backdrop-blur-xl px-6 pt-4 pb-10 rounded-b-[40px] border-b border-primary/20">
             {/* Top row with logo and close button - same positioning as header */}
             <div className="flex items-center justify-between max-w-7xl mx-auto mb-8">
               <img 
