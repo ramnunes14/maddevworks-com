@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -8,12 +8,16 @@ interface HeaderProps {
 
 const Header = ({ activeSection }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const touchStartY = useRef<number>(0);
+  const touchEndY = useRef<number>(0);
 
   const navItems = [
     { id: "inicio", label: "Início" },
     { id: "servicos", label: "Serviços" },
     { id: "duvidas", label: "Dúvidas" },
   ];
+
+  const allSections = ["inicio", "servicos", "duvidas"];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -23,9 +27,33 @@ const Header = ({ activeSection }: HeaderProps) => {
     setIsMenuOpen(false);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndY.current = e.changedTouches[0].clientY;
+    const diff = touchStartY.current - touchEndY.current;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      const currentIndex = allSections.indexOf(activeSection);
+      
+      if (diff > 0 && currentIndex < allSections.length - 1) {
+        // Swipe up - go to next section
+        scrollToSection(allSections[currentIndex + 1]);
+      } else if (diff < 0 && currentIndex > 0) {
+        // Swipe down - go to previous section
+        scrollToSection(allSections[currentIndex - 1]);
+      } else {
+        setIsMenuOpen(false);
+      }
+    }
+  };
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12 lg:px-20">
+      <header className="fixed top-0 left-0 right-0 z-[110] px-6 py-4 md:px-12 lg:px-20">
         <nav className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex items-center">
@@ -52,38 +80,26 @@ const Header = ({ activeSection }: HeaderProps) => {
             ))}
           </ul>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - toggles between Menu and X */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 transition-transform duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu size={24} />
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
       </header>
 
       {/* Mobile Fullscreen Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[100] flex flex-col">
-          {/* Glassmorphism header section with bottom radius */}
-          <div className="bg-[hsl(222_47%_12%/0.95)] backdrop-blur-xl px-6 pt-4 pb-10 rounded-b-[40px] border-b border-primary/20">
-            {/* Top row with logo and close button - same positioning as header */}
-            <div className="flex items-center justify-between max-w-7xl mx-auto mb-8">
-              <img 
-                src={logo} 
-                alt="MadDevWorks" 
-                className="h-20 w-auto brightness-0 invert"
-              />
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-white p-2"
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
+        <div 
+          className="md:hidden fixed inset-0 z-[105] flex flex-col animate-fade-in"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Glassmorphism menu section - starts from top */}
+          <div className="bg-white/10 backdrop-blur-2xl px-6 pt-28 pb-8 rounded-b-[40px] border-b border-white/20 shadow-2xl animate-slide-down">
             {/* Navigation links */}
             <nav className="flex flex-col items-center gap-3">
               {navItems.map((item) => (
@@ -92,7 +108,7 @@ const Header = ({ activeSection }: HeaderProps) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`italic transition-all ${
                     activeSection === item.id 
-                      ? "text-[#1565C0] font-bold text-3xl" 
+                      ? "text-gradient font-bold text-3xl" 
                       : "text-white font-medium text-xl"
                   }`}
                 >
