@@ -11,7 +11,7 @@ const WebsitesSection = () => {
 
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between relative z-10">
         {/* Content */}
-        <div className="text-center md:text-left mb-8 md:mb-0">
+        <div className="text-center md:text-left mb-8 md:mb-0 mt-16 md:mt-0">
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 opacity-0 animate-fade-in-up">
             DESENVOLVIMENTO
             <br />
@@ -26,11 +26,11 @@ const WebsitesSection = () => {
         </div>
 
         {/* Illustration */}
-        <div className="opacity-0 animate-fade-in-right" style={{ animationDelay: "0.4s" }}>
+        <div className="mt-16 md:mt-0 opacity-0 animate-fade-in-right" style={{ animationDelay: "0.4s" }}>
           <img
             src={websitesIllustration}
             alt="Desenvolvimento de websites"
-            className="w-64 md:w-80 lg:w-[450px] animate-float"
+            className="w-48 md:w-80 lg:w-[450px] animate-float"
           />
         </div>
       </div>
