@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
-import HeroSection from "@/components/sections/HeroSection";
-import WebsitesSection from "@/components/sections/WebsitesSection";
-import VideosSection from "@/components/sections/VideosSection";
-import SocialSection from "@/components/sections/SocialSection";
 import ContactSection from "@/components/sections/ContactSection";
+import DroneSection from "@/components/sections/DroneSection";
+import HeroSection from "@/components/sections/HeroSection";
+import PhotosSection from "@/components/sections/PhotosSection";
+import SocialSection from "@/components/sections/SocialSection";
+import VideosSection from "@/components/sections/VideosSection";
+import WebsitesSection from "@/components/sections/WebsitesSection";
+
+const trackedSections = ["inicio", "servicos", "videos", "fotos", "drone", "redes-sociais", "duvidas"];
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -14,22 +18,23 @@ const Index = () => {
     if (!container) return;
 
     const handleScroll = () => {
-      const sections = ["inicio", "servicos", "duvidas"];
-      const scrollPosition = container.scrollTop + window.innerHeight / 2;
+      const viewportMiddle = container.scrollTop + window.innerHeight / 2;
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
+      for (const sectionId of trackedSections) {
+        const section = document.getElementById(sectionId);
+        if (!section) continue;
+
+        const { offsetTop, offsetHeight } = section;
+        if (viewportMiddle >= offsetTop && viewportMiddle < offsetTop + offsetHeight) {
+          setActiveSection(sectionId);
+          break;
         }
       }
     };
 
+    handleScroll();
     container.addEventListener("scroll", handleScroll);
+
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -39,6 +44,8 @@ const Index = () => {
       <HeroSection />
       <WebsitesSection />
       <VideosSection />
+      <PhotosSection />
+      <DroneSection />
       <SocialSection />
       <ContactSection />
     </main>
