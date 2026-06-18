@@ -104,7 +104,7 @@
 
 @layer utilities {
   .scroll-container {
-    height: 100vh;
+    height: 100svh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -114,7 +114,7 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     height: auto;
-    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .gradient-bg {
@@ -138,6 +138,22 @@
   .horizontal-fade-scroll {
     -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 7rem), transparent 100%);
     mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 7rem), transparent 100%);
+  }
+
+  @media (max-width: 767px) {
+    .scroll-container {
+      scroll-snap-type: none;
+    }
+
+    .snap-section {
+      min-height: auto;
+      scroll-snap-align: none;
+    }
+
+    .horizontal-fade-scroll {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
   }
 }
 

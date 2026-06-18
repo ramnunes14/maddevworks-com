@@ -23,19 +23,19 @@ const WebsitesSection = () => {
   return (
     <section
       id="servicos"
-      className="snap-section relative flex items-center justify-center overflow-hidden px-6 py-32 md:px-12 lg:px-20"
+      className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-20 md:px-12 md:py-32 lg:px-20"
     >
       <WaveBackground />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-8">
         <div className="max-w-3xl text-center md:text-left">
-          <h2 className="mb-4 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:text-5xl lg:text-7xl">
+          <h2 className="mb-3 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:mb-4 md:text-5xl lg:text-7xl">
             DESENVOLVIMENTO
             <br />
             DE <span className="text-gradient">WEBSITES</span>
           </h2>
           <p
-            className="text-lg italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
+            className="text-base italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
             Criamos o site à tua medida
@@ -43,13 +43,13 @@ const WebsitesSection = () => {
         </div>
 
         <div
-          className="grid gap-4 opacity-0 animate-fade-in-up md:grid-cols-3"
+          className="grid gap-3 opacity-0 animate-fade-in-up md:grid-cols-3 md:gap-4"
           style={{ animationDelay: "0.4s" }}
         >
           {websites.map((website) => (
             <article
               key={website.title}
-              className="rounded-lg border border-white/10 bg-white/[0.06] p-4 shadow-2xl backdrop-blur-md"
+              className="rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md md:p-4"
             >
               <div className="mb-3 rounded-md border border-white/10 bg-slate-950/70 p-2">
                 <div className="mb-2 flex gap-1">
@@ -59,7 +59,7 @@ const WebsitesSection = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="h-3 w-3/4 rounded bg-white/25" />
-                  <div className="h-14 rounded bg-white/10" />
+                  <div className="h-10 rounded bg-white/10 md:h-14" />
                   <div className="grid grid-cols-3 gap-2">
                     <div className="h-6 rounded bg-white/15" />
                     <div className="h-6 rounded bg-white/10" />

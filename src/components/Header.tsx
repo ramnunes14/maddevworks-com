@@ -59,13 +59,13 @@ const Header = ({ activeSection }: HeaderProps) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-[110] px-6 py-4 md:px-12 lg:px-20">
+      <header className="fixed top-0 left-0 right-0 z-[110] px-4 py-3 md:px-12 md:py-4 lg:px-20">
         <nav className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center">
             <img
               src={logo}
               alt="MadDevWorks - Constrói o teu site connosco"
-              className="h-20 w-auto brightness-0 invert drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] md:h-26 lg:h-32"
+              className="h-14 w-auto brightness-0 invert drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:h-16 md:h-24 lg:h-32"
             />
           </div>
 
@@ -85,7 +85,7 @@ const Header = ({ activeSection }: HeaderProps) => {
           </ul>
 
           <button
-            className="md:hidden p-2 text-foreground transition-transform duration-200"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-foreground transition-transform duration-200 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -100,7 +100,7 @@ const Header = ({ activeSection }: HeaderProps) => {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="animate-slide-down rounded-b-[40px] border-b border-white/10 bg-slate-950/80 px-6 pt-28 pb-8 shadow-2xl backdrop-blur-2xl">
+          <div className="animate-slide-down rounded-b-3xl border-b border-white/10 bg-slate-950/85 px-6 pb-7 pt-24 shadow-2xl backdrop-blur-2xl">
             <nav className="flex flex-col items-center gap-3">
               {navItems.map((item) => (
                 <button
@@ -108,8 +108,8 @@ const Header = ({ activeSection }: HeaderProps) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`italic transition-all ${
                     isNavItemActive(item.id)
-                      ? "text-gradient font-bold text-3xl"
-                      : "text-white font-medium text-xl"
+                      ? "text-gradient font-bold text-2xl"
+                      : "text-white font-medium text-lg"
                   }`}
                 >
                   {item.label}

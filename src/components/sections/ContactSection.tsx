@@ -1,53 +1,59 @@
+import { Instagram, Mail } from "lucide-react";
 import contactIllustration from "@/assets/contact-illustration.svg";
 import WaveBackground from "@/components/WaveBackground";
-import { Mail, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section 
-      id="duvidas" 
-      className="snap-section flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden"
+    <section
+      id="duvidas"
+      className="snap-section relative flex flex-col items-center justify-center overflow-hidden px-4 pb-0 pt-20 md:px-12 md:py-24 lg:px-20"
     >
       <WaveBackground />
 
-      {/* Content - centered vertically */}
       <div className="relative z-10 text-center">
-        <h2 className="text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 opacity-0 animate-fade-in-up">
+        <h2 className="mb-3 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:mb-4 md:text-5xl lg:text-7xl">
           AINDA TENS
           <br />
           <span className="text-gradient">DÚVIDAS</span>?
         </h2>
-        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+        <p
+          className="text-base text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
+          style={{ animationDelay: "0.2s" }}
+        >
           Contacta-nos
         </p>
-        
-        {/* Contact Icons */}
-        <div className="flex items-center justify-center gap-6 mt-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <a 
-            href="mailto:maddevworks@gmail.com" 
-            className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+
+        <div
+          className="mt-5 flex items-center justify-center gap-4 opacity-0 animate-fade-in-up md:mt-6 md:gap-6"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <a
+            href="mailto:maddevworks@gmail.com"
+            className="rounded-full border border-primary/20 bg-primary/10 p-3 transition-colors hover:bg-primary/20"
             aria-label="Email"
           >
-            <Mail className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+            <Mail className="h-6 w-6 text-primary md:h-8 md:w-8" />
           </a>
-          <a 
-            href="https://instagram.com/maddevworks" 
-            target="_blank" 
+          <a
+            href="https://instagram.com/maddevworks"
+            target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+            className="rounded-full border border-primary/20 bg-primary/10 p-3 transition-colors hover:bg-primary/20"
             aria-label="Instagram"
           >
-            <Instagram className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+            <Instagram className="h-6 w-6 text-primary md:h-8 md:w-8" />
           </a>
         </div>
       </div>
 
-      {/* Illustration - absolutely positioned at bottom */}
-      <div className="absolute bottom-0 inset-x-0 flex justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-        <img 
-          src={contactIllustration} 
+      <div
+        className="relative inset-x-0 z-10 mt-8 flex justify-center opacity-0 animate-fade-in-up md:absolute md:bottom-0 md:mt-0"
+        style={{ animationDelay: "0.4s" }}
+      >
+        <img
+          src={contactIllustration}
           alt="Contacta-nos"
-          className="w-[282px] md:w-[352px] lg:w-[422px] animate-float"
+          className="w-[220px] brightness-95 saturate-75 drop-shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:w-[260px] md:w-[352px] lg:w-[422px]"
         />
       </div>
     </section>

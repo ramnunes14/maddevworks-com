@@ -32,17 +32,17 @@ const PhotosSection = () => {
   return (
     <section
       id="fotos"
-      className="snap-section relative flex items-center justify-center overflow-hidden px-6 py-32 md:px-12 lg:px-20"
+      className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-20 md:px-12 md:py-32 lg:px-20"
     >
       <WaveBackground />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-8">
         <div className="max-w-3xl text-center lg:text-left">
-          <h2 className="mb-4 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:text-5xl lg:text-7xl">
+          <h2 className="mb-3 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:mb-4 md:text-5xl lg:text-7xl">
             PRODUÇÃO DE <span className="text-gradient">FOTOS</span>
           </h2>
           <p
-            className="text-lg italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
+            className="text-base italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
             Fotos tiradas por nós para websites, redes sociais e campanhas.
@@ -50,16 +50,16 @@ const PhotosSection = () => {
         </div>
 
         <div className="relative opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <div className="horizontal-fade-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+          <div className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 md:gap-4">
             {photos.map((photo, index) => (
               <article
                 key={photo.src}
-                className="group relative w-[78vw] flex-none snap-start overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[360px] lg:w-[380px]"
+                className="group relative w-[84vw] max-w-[360px] flex-none snap-start overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[360px] sm:max-w-none lg:w-[380px]"
               >
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="aspect-video h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="aspect-[4/3] h-full w-full object-cover transition duration-500 group-hover:scale-105 md:aspect-video"
                   loading={index < 3 ? "eager" : "lazy"}
                 />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-4 pb-4 pt-14">
