@@ -142,12 +142,12 @@
 
   @media (max-width: 767px) {
     .scroll-container {
-      scroll-snap-type: none;
+      scroll-snap-type: y proximity;
     }
 
     .snap-section {
-      min-height: auto;
-      scroll-snap-align: none;
+      min-height: 100svh;
+      scroll-snap-align: start;
     }
 
     .horizontal-fade-scroll {
