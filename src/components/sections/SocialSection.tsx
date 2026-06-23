@@ -41,13 +41,13 @@ const SocialSection = () => {
         </div>
 
         <div
-          className="grid gap-3 opacity-0 animate-fade-in-up sm:grid-cols-3 md:gap-4"
+          className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 opacity-0 animate-fade-in-up sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 md:gap-4"
           style={{ animationDelay: "0.4s" }}
         >
           {socialExamples.map(({ title, icon: Icon }, index) => (
             <article
               key={title}
-              className="rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md md:p-4"
+              className="w-[74vw] max-w-[280px] flex-none snap-start rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md sm:w-auto sm:max-w-none md:p-4"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/10 md:mb-4 md:h-12 md:w-12">
                 <Icon className="h-5 w-5 text-primary" />
