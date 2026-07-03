@@ -3,26 +3,32 @@ import WaveBackground from "@/components/WaveBackground";
 
 const websites = [
   {
-    title: "Website institucional",
-    description: "Página rápida, clara e preparada para apresentar serviços.",
-    url: "#",
+    title: "Survey Madeira",
+    description: "Website para serviços especializados de engenharia civil e consultoria técnica.",
+    url: "https://surveymadeira.com/",
+    image: "/websites/survey-madeira.png",
+    alt: "Página inicial do website Survey Madeira",
   },
   {
-    title: "Landing page",
-    description: "Estrutura focada em campanhas e pedidos de contacto.",
-    url: "#",
+    title: "Carvão Grill House",
+    description: "Website para restaurante com apresentação de marca, menu e reservas.",
+    url: "https://www.carvaogrillhouse.com/",
+    image: "/websites/carvao-grill-house.png",
+    alt: "Página inicial do website Carvão Grill House",
   },
   {
-    title: "Portfólio digital",
-    description: "Experiência visual para mostrar trabalhos e gerar confiança.",
-    url: "#",
+    title: "Carvão Rooftop",
+    description: "Website para rooftop com apresentação da marca, menu, reservas e contactos.",
+    url: "https://carvaorooftop.pt/",
+    image: "/websites/carvao-rooftop.png",
+    alt: "Página inicial do website Carvão Rooftop",
   },
 ];
 
 const WebsitesSection = () => {
   return (
     <section
-      id="servicos"
+      id="websites"
       className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-20 md:px-12 md:py-32 lg:px-20"
     >
       <WaveBackground />
@@ -51,21 +57,32 @@ const WebsitesSection = () => {
               key={website.title}
               className="rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md md:p-4"
             >
-              <div className="mb-3 rounded-md border border-white/10 bg-slate-950/70 p-2">
-                <div className="mb-2 flex gap-1">
-                  <span className="h-2 w-2 rounded-full bg-white/30" />
-                  <span className="h-2 w-2 rounded-full bg-white/20" />
-                  <span className="h-2 w-2 rounded-full bg-white/10" />
-                </div>
-                <div className="space-y-2">
-                  <div className="h-3 w-3/4 rounded bg-white/25" />
-                  <div className="h-10 rounded bg-white/10 md:h-14" />
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="h-6 rounded bg-white/15" />
-                    <div className="h-6 rounded bg-white/10" />
-                    <div className="h-6 rounded bg-white/15" />
+              <div className="mb-3 aspect-video overflow-hidden rounded-md border border-white/10 bg-slate-950/70">
+                {website.image ? (
+                  <img
+                    src={website.image}
+                    alt={website.alt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="h-full p-2">
+                    <div className="mb-2 flex gap-1">
+                      <span className="h-2 w-2 rounded-full bg-white/30" />
+                      <span className="h-2 w-2 rounded-full bg-white/20" />
+                      <span className="h-2 w-2 rounded-full bg-white/10" />
+                    </div>
+                    <div className="space-y-2">
+                      <div className="h-3 w-3/4 rounded bg-white/25" />
+                      <div className="h-10 rounded bg-white/10 md:h-14" />
+                      <div className="grid grid-cols-3 gap-2">
+                        <div className="h-6 rounded bg-white/15" />
+                        <div className="h-6 rounded bg-white/10" />
+                        <div className="h-6 rounded bg-white/15" />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -76,6 +93,8 @@ const WebsitesSection = () => {
                   href={website.url}
                   className="rounded-full border border-white/10 bg-white/10 p-2 transition-colors hover:bg-white/20"
                   aria-label={`Abrir ${website.title}`}
+                  target={website.url.startsWith("http") ? "_blank" : undefined}
+                  rel={website.url.startsWith("http") ? "noreferrer" : undefined}
                 >
                   <ExternalLink className="h-4 w-4" />
                 </a>

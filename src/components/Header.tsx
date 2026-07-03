@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/intro-logo.png";
 
 interface HeaderProps {
   activeSection: string;
@@ -10,6 +10,7 @@ const Header = ({ activeSection }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const touchStartY = useRef<number>(0);
   const touchEndY = useRef<number>(0);
+  const showLogo = activeSection === "inicio";
 
   const navItems = [
     { id: "inicio", label: "Início" },
@@ -17,11 +18,11 @@ const Header = ({ activeSection }: HeaderProps) => {
     { id: "duvidas", label: "Dúvidas" },
   ];
 
-  const allSections = ["inicio", "servicos", "videos", "fotos", "drone", "redes-sociais", "duvidas"];
+  const allSections = ["inicio", "servicos", "websites", "fotos", "drone", "redes-sociais", "duvidas"];
 
   const isNavItemActive = (id: string) => {
     if (id === "servicos") {
-      return ["servicos", "videos", "fotos", "drone", "redes-sociais"].includes(activeSection);
+      return ["servicos", "websites", "fotos", "drone", "redes-sociais"].includes(activeSection);
     }
 
     return activeSection === id;
@@ -61,15 +62,17 @@ const Header = ({ activeSection }: HeaderProps) => {
     <>
       <header className="fixed top-0 left-0 right-0 z-[110] px-4 py-3 md:px-12 md:py-4 lg:px-20">
         <nav className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center">
+          <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24">
             <img
               src={logo}
-              alt="MadDevWorks - Constrói o teu site connosco"
-              className="h-14 w-auto brightness-0 invert drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:h-16 md:h-24 lg:h-32"
+              alt="MadDevWorks"
+              className={`absolute left-0 top-[58%] h-12 w-auto -translate-y-1/2 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-opacity duration-150 sm:h-14 md:h-16 lg:h-20 ${
+                showLogo ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
             />
           </div>
 
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-3 text-xs sm:gap-5 sm:text-sm md:gap-8">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
@@ -85,7 +88,7 @@ const Header = ({ activeSection }: HeaderProps) => {
           </ul>
 
           <button
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-foreground transition-transform duration-200 md:hidden"
+            className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/20 text-foreground transition-transform duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >

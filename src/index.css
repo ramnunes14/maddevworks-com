@@ -100,6 +100,11 @@
       var(--gradient-bg);
     overflow-x: hidden;
   }
+
+  .intro-lock,
+  .intro-lock body {
+    overflow: hidden;
+  }
 }
 
 @layer utilities {
@@ -140,6 +145,15 @@
     mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 7rem), transparent 100%);
   }
 
+  .intro-content-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .intro-content-visible {
+    animation: intro-content-reveal 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
   @media (max-width: 767px) {
     .scroll-container {
       scroll-snap-type: y mandatory;
@@ -175,5 +189,151 @@
 
   .nav-link.active {
     @apply text-primary font-semibold;
+  }
+
+  .intro-screen {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    min-height: 100svh;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-color: hsl(var(--background));
+    background:
+      linear-gradient(180deg, hsl(var(--background) / 0.16), hsl(var(--background) / 0.3)),
+      radial-gradient(circle at 50% 48%, hsl(var(--primary) / 0.16) 0%, hsl(var(--primary) / 0) 31%),
+      url("./assets/wave-bg.png"),
+      var(--gradient-bg);
+    background-position: center, center, center, center;
+    background-repeat: no-repeat;
+    background-size: cover, cover, cover, cover;
+    animation: intro-screen-exit 720ms cubic-bezier(0.65, 0, 0.35, 1) 1720ms forwards;
+  }
+
+  .intro-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(120deg, transparent 0%, hsl(var(--foreground) / 0.035) 48%, transparent 100%),
+      radial-gradient(circle at 50% 52%, hsl(var(--primary) / 0.105), transparent 18%);
+    opacity: 0;
+    animation: intro-surface 1700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .intro-orb {
+    position: absolute;
+    width: clamp(128px, 18vw, 230px);
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    background: radial-gradient(circle, hsl(var(--foreground) / 0.16), hsl(var(--primary) / 0.08) 45%, transparent 68%);
+    filter: blur(26px);
+    opacity: 0;
+    transform: scale(0.84);
+    animation: intro-orb-reveal 2100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .intro-logo {
+    position: relative;
+    z-index: 1;
+    width: clamp(96px, 14vw, 156px);
+    height: auto;
+    filter: blur(12px) drop-shadow(0 24px 58px hsl(var(--background) / 0.52));
+    transform: translate3d(0, 10px, 0) scale(0.94);
+    opacity: 0;
+    will-change: transform, opacity, filter;
+    animation: intro-logo-reveal 2150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes intro-logo-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.94);
+    filter: blur(14px) drop-shadow(0 24px 58px hsl(var(--background) / 0.52));
+  }
+  32% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0) drop-shadow(0 28px 70px hsl(var(--background) / 0.62));
+  }
+  72% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0) drop-shadow(0 28px 70px hsl(var(--background) / 0.62));
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0) scale(0.98);
+    filter: blur(8px) drop-shadow(0 18px 44px hsl(var(--background) / 0.42));
+  }
+}
+
+@keyframes intro-orb-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+  36% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  78% {
+    opacity: 0.72;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes intro-surface {
+  0% {
+    opacity: 0;
+    transform: translate3d(-2%, 0, 0);
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.42;
+    transform: translate3d(2%, 0, 0);
+  }
+}
+
+@keyframes intro-screen-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-content-reveal {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-content-visible {
+    animation: none;
+  }
+
+  .intro-screen,
+  .intro-screen::before,
+  .intro-orb,
+  .intro-logo {
+    animation: none;
   }
 }

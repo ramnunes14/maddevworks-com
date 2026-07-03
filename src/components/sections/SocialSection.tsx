@@ -7,7 +7,7 @@ const socialExamples = [
     icon: Grid2X2,
   },
   {
-    title: "Posts para campanhas",
+    title: "Publicações para campanhas",
     icon: Heart,
   },
   {
@@ -35,7 +35,7 @@ const SocialSection = () => {
             className="text-base italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
-            Gerimos e potencializamos
+            Gerimos e potenciamos
             <br className="hidden md:block" /> as tuas redes sociais
           </p>
         </div>

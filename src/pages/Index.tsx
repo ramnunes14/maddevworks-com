@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Header from "@/components/Header";
+import IntroAnimation from "@/components/IntroAnimation";
 import ContactSection from "@/components/sections/ContactSection";
 import DroneSection from "@/components/sections/DroneSection";
 import HeroSection from "@/components/sections/HeroSection";
@@ -8,10 +9,24 @@ import SocialSection from "@/components/sections/SocialSection";
 import VideosSection from "@/components/sections/VideosSection";
 import WebsitesSection from "@/components/sections/WebsitesSection";
 
-const trackedSections = ["inicio", "servicos", "videos", "fotos", "drone", "redes-sociais", "duvidas"];
+const trackedSections = ["inicio", "servicos", "websites", "fotos", "drone", "redes-sociais", "duvidas"];
+
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
+  const [playIntro] = useState(() => !prefersReducedMotion());
+  const [isIntroRevealed, setIsIntroRevealed] = useState(() => !playIntro);
+  const [showIntro, setShowIntro] = useState(playIntro);
+
+  const handleIntroReveal = useCallback(() => {
+    setIsIntroRevealed(true);
+  }, []);
+
+  const handleIntroComplete = useCallback(() => {
+    setShowIntro(false);
+  }, []);
 
   useEffect(() => {
     const container = document.getElementById("scroll-container");
@@ -39,16 +54,27 @@ const Index = () => {
   }, []);
 
   return (
-    <main id="scroll-container" className="scroll-container">
+    <>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} onReveal={handleIntroReveal} />}
+
       <Header activeSection={activeSection} />
-      <HeroSection />
-      <WebsitesSection />
-      <VideosSection />
-      <PhotosSection />
-      <DroneSection />
-      <SocialSection />
-      <ContactSection />
-    </main>
+
+      <main
+        id="scroll-container"
+        className={`scroll-container ${
+          playIntro ? (isIntroRevealed ? "intro-content-visible" : "intro-content-hidden") : ""
+        }`}
+        aria-hidden={playIntro && !isIntroRevealed}
+      >
+        <HeroSection />
+        <VideosSection />
+        <WebsitesSection />
+        <PhotosSection />
+        <DroneSection />
+        <SocialSection />
+        <ContactSection />
+      </main>
+    </>
   );
 };
 

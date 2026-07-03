@@ -15,7 +15,7 @@ const reels = [
 const VideosSection = () => {
   return (
     <section
-      id="videos"
+      id="servicos"
       className="snap-section relative flex items-center justify-center overflow-hidden px-4 py-20 md:px-12 md:py-32 lg:px-20"
     >
       <WaveBackground />
@@ -29,7 +29,7 @@ const VideosSection = () => {
             className="text-base italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
-            Reels e vídeos com storytelling para destacar a tua marca.
+            Reels e vídeos com narrativa para destacar a tua marca
           </p>
         </div>
 
