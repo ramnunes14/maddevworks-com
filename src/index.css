@@ -112,6 +112,7 @@
     height: 100dvh;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+    scroll-padding: 0;
     scroll-behavior: smooth;
     overscroll-behavior-y: contain;
     scrollbar-width: none;
@@ -125,6 +126,8 @@
   .snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    scroll-margin-top: 0;
+    scroll-margin-bottom: 0;
     height: auto;
     min-height: 100dvh;
   }
@@ -187,15 +190,14 @@
 
   @media (max-width: 767px) {
     .scroll-container {
-      scroll-padding-top: 4.75rem;
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: none;
     }
 
     .snap-section {
-      height: auto;
+      height: 100dvh;
       min-height: 100dvh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
     }
 
     [data-reveal] {
