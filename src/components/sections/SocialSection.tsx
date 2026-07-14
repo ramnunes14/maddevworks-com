@@ -26,13 +26,14 @@ const SocialSection = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-8">
         <div className="max-w-3xl text-center lg:text-left">
-          <h2 className="mb-3 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:mb-4 md:text-5xl lg:text-7xl">
+          <h2 data-reveal className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
             GESTÃO DE
             <br />
             <span className="text-gradient">REDES SOCIAIS</span>
           </h2>
           <p
-            className="text-base italic text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
+            data-reveal
+            className="text-base italic text-muted-foreground md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
             Gerimos e potenciamos
@@ -41,7 +42,8 @@ const SocialSection = () => {
         </div>
 
         <div
-          className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 opacity-0 animate-fade-in-up sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 md:gap-4"
+          data-reveal
+          className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 md:gap-4"
           style={{ animationDelay: "0.4s" }}
         >
           {socialExamples.map(({ title, icon: Icon }, index) => (

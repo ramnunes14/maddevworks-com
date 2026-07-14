@@ -11,20 +11,22 @@ const ContactSection = () => {
       <WaveBackground />
 
       <div className="relative z-10 text-center">
-        <h2 className="mb-3 text-3xl font-extrabold leading-tight opacity-0 animate-fade-in-up md:mb-4 md:text-5xl lg:text-7xl">
+        <h2 data-reveal className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
           AINDA TENS
           <br />
           <span className="text-gradient">DÚVIDAS</span>?
         </h2>
         <p
-          className="text-base text-muted-foreground opacity-0 animate-fade-in-up md:text-xl lg:text-2xl"
+          data-reveal
+          className="text-base text-muted-foreground md:text-xl lg:text-2xl"
           style={{ animationDelay: "0.2s" }}
         >
           Contacta-nos
         </p>
 
         <div
-          className="mt-5 flex items-center justify-center gap-4 opacity-0 animate-fade-in-up md:mt-6 md:gap-6"
+          data-reveal
+          className="mt-5 flex items-center justify-center gap-4 md:mt-6 md:gap-6"
           style={{ animationDelay: "0.3s" }}
         >
           <a
@@ -47,7 +49,8 @@ const ContactSection = () => {
       </div>
 
       <div
-        className="relative inset-x-0 z-10 mt-8 flex justify-center opacity-0 animate-fade-in-up md:absolute md:bottom-0 md:mt-0"
+        data-reveal
+        className="relative inset-x-0 z-10 mt-8 flex justify-center md:absolute md:bottom-0 md:mt-0"
         style={{ animationDelay: "0.4s" }}
       >
         <img

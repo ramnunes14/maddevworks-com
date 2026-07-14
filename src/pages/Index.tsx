@@ -32,25 +32,54 @@ const Index = () => {
     const container = document.getElementById("scroll-container");
     if (!container) return;
 
+    const sections = trackedSections
+      .map((sectionId) => document.getElementById(sectionId))
+      .filter((section): section is HTMLElement => Boolean(section));
+
     const handleScroll = () => {
       const viewportMiddle = container.scrollTop + window.innerHeight / 2;
 
-      for (const sectionId of trackedSections) {
-        const section = document.getElementById(sectionId);
-        if (!section) continue;
-
+      for (const section of sections) {
         const { offsetTop, offsetHeight } = section;
         if (viewportMiddle >= offsetTop && viewportMiddle < offsetTop + offsetHeight) {
-          setActiveSection(sectionId);
+          setActiveSection(section.id);
           break;
         }
       }
     };
 
+    const observer =
+      "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("section-visible");
+                }
+              }
+            },
+            {
+              root: container,
+              threshold: 0.28,
+              rootMargin: "0px 0px -8% 0px",
+            },
+          )
+        : null;
+
+    if (observer) {
+      sections.forEach((section) => observer.observe(section));
+    } else {
+      sections.forEach((section) => section.classList.add("section-visible"));
+    }
+
+    document.getElementById("inicio")?.classList.add("section-visible");
     handleScroll();
     container.addEventListener("scroll", handleScroll);
 
-    return () => container.removeEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      observer?.disconnect();
+    };
   }, []);
 
   return (
