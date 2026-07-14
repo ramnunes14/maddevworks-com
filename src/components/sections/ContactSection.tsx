@@ -56,7 +56,7 @@ const ContactSection = () => {
         <img
           src={contactIllustration}
           alt="Contacta-nos"
-          className="w-[220px] brightness-95 saturate-75 drop-shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:w-[260px] md:w-[352px] lg:w-[422px]"
+          className="contact-illustration w-[220px] brightness-95 saturate-75 drop-shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:w-[260px] md:w-[352px] lg:w-[422px]"
         />
       </div>
     </section>

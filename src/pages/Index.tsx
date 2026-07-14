@@ -37,6 +37,7 @@ const Index = () => {
       .map((sectionId) => document.getElementById(sectionId))
       .filter((section): section is HTMLElement => Boolean(section));
     const mobileSnapQuery = window.matchMedia("(max-width: 767px)");
+    let wheelLocked = false;
 
     const handleScroll = () => {
       const viewportMiddle = container.scrollTop + window.innerHeight / 2;
@@ -75,11 +76,41 @@ const Index = () => {
       }, behavior === "smooth" ? 520 : 0);
     };
 
+    const handleWheel = (event: WheelEvent) => {
+      if (event.ctrlKey) return;
+
+      const isHorizontalGesture = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+      if (isHorizontalGesture) return;
+
+      event.preventDefault();
+      if (wheelLocked || Math.abs(event.deltaY) < 4) return;
+
+      wheelLocked = true;
+      snapToSection(getClosestSectionIndex() + (event.deltaY > 0 ? 1 : -1));
+
+      window.setTimeout(() => {
+        wheelLocked = false;
+      }, 640);
+    };
+
     const handleTouchStart = (event: TouchEvent) => {
       if (!mobileSnapQuery.matches) return;
 
       const touch = event.touches[0];
       touchStartRef.current = { x: touch.clientX, y: touch.clientY, sectionIndex: getClosestSectionIndex() };
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!mobileSnapQuery.matches) return;
+
+      const touch = event.touches[0];
+      const deltaX = touch.clientX - touchStartRef.current.x;
+      const deltaY = touchStartRef.current.y - touch.clientY;
+      const isHorizontalGesture = Math.abs(deltaX) > Math.abs(deltaY) * 0.9;
+
+      if (!isHorizontalGesture && Math.abs(deltaY) > 8) {
+        event.preventDefault();
+      }
     };
 
     const handleTouchEnd = (event: TouchEvent) => {
@@ -123,12 +154,16 @@ const Index = () => {
     document.getElementById("inicio")?.classList.add("section-visible");
     handleScroll();
     container.addEventListener("scroll", handleScroll);
+    container.addEventListener("wheel", handleWheel, { passive: false });
     container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchmove", handleTouchMove, { passive: false });
     container.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     return () => {
       container.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("wheel", handleWheel);
       container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
       container.removeEventListener("touchend", handleTouchEnd);
       observer?.disconnect();
     };
