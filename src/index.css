@@ -141,6 +141,10 @@
     animation: section-reveal 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
+  .section-visible [data-reveal="text"] {
+    animation-duration: 1080ms;
+  }
+
   .gradient-bg {
     background: var(--gradient-bg);
   }
@@ -184,14 +188,14 @@
   @media (max-width: 767px) {
     .scroll-container {
       scroll-padding-top: 4.75rem;
-      scroll-snap-type: y proximity;
+      scroll-snap-type: y mandatory;
     }
 
     .snap-section {
       height: auto;
       min-height: 100dvh;
       scroll-snap-align: start;
-      scroll-snap-stop: normal;
+      scroll-snap-stop: always;
     }
 
     [data-reveal] {
@@ -200,7 +204,11 @@
     }
 
     .section-visible [data-reveal] {
-      animation-duration: 640ms;
+      animation-duration: 760ms;
+    }
+
+    .section-visible [data-reveal="text"] {
+      animation-duration: 1120ms;
     }
 
     .horizontal-fade-scroll {

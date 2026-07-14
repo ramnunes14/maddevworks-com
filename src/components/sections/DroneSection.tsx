@@ -28,11 +28,11 @@ const DroneSection = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-8">
         <div className="max-w-3xl text-center lg:text-left">
-          <h2 data-reveal className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
+          <h2 data-reveal="text" className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
             FILMAGENS DE <span className="text-gradient">DRONE</span>
           </h2>
           <p
-            data-reveal
+            data-reveal="text"
             className="text-base italic text-muted-foreground md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >

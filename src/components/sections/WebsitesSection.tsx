@@ -35,13 +35,13 @@ const WebsitesSection = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 md:gap-8">
         <div className="max-w-3xl text-center md:text-left">
-          <h2 data-reveal className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
+          <h2 data-reveal="text" className="mb-3 text-3xl font-extrabold leading-tight md:mb-4 md:text-5xl lg:text-7xl">
             DESENVOLVIMENTO
             <br />
             DE <span className="text-gradient">WEBSITES</span>
           </h2>
           <p
-            data-reveal
+            data-reveal="text"
             className="text-base italic text-muted-foreground md:text-xl lg:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
@@ -51,13 +51,13 @@ const WebsitesSection = () => {
 
         <div
           data-reveal
-          className="grid gap-3 md:grid-cols-3 md:gap-4"
+          className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:pb-0"
           style={{ animationDelay: "0.4s" }}
         >
           {websites.map((website) => (
             <article
               key={website.title}
-              className="rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md md:p-4"
+              className="w-[84vw] max-w-[360px] flex-none snap-start rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-2xl backdrop-blur-md md:w-auto md:max-w-none md:p-4"
             >
               <div className="mb-3 aspect-video overflow-hidden rounded-md border border-white/10 bg-slate-950/70">
                 {website.image ? (
