@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Play } from "lucide-react";
+import HorizontalScrollBar from "@/components/HorizontalScrollBar";
 import WaveBackground from "@/components/WaveBackground";
 
 type DroneShot = {
@@ -19,6 +21,8 @@ const droneShots = [
 ] satisfies DroneShot[];
 
 const DroneSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   return (
     <section
       id="drone"
@@ -41,11 +45,14 @@ const DroneSection = () => {
         </div>
 
         <div data-reveal className="relative" style={{ animationDelay: "0.4s" }}>
-          <div className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 md:gap-4">
+          <div
+            ref={scrollRef}
+            className="horizontal-fade-scroll media-scroll-track flex gap-3 overflow-x-auto scroll-px-4 pb-4 md:gap-4"
+          >
             {droneShots.map((shot) => (
               <article
                 key={shot.title}
-                className="group w-[84vw] max-w-[380px] flex-none snap-start overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[520px] sm:max-w-none lg:w-[560px]"
+                className="group w-[84vw] max-w-[380px] flex-none overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[520px] sm:max-w-none lg:w-[560px]"
               >
                 <div className="relative aspect-video bg-slate-950">
                   {shot.video ? (
@@ -72,6 +79,8 @@ const DroneSection = () => {
               </article>
             ))}
           </div>
+
+          <HorizontalScrollBar trackRef={scrollRef} label="Percorrer drones" />
         </div>
       </div>
     </section>

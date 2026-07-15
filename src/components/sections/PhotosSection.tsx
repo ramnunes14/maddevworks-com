@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import HorizontalScrollBar from "@/components/HorizontalScrollBar";
 import WaveBackground from "@/components/WaveBackground";
 
 const photos = [
@@ -29,6 +31,8 @@ const photos = [
 ];
 
 const PhotosSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   return (
     <section
       id="fotos"
@@ -51,11 +55,14 @@ const PhotosSection = () => {
         </div>
 
         <div data-reveal className="relative" style={{ animationDelay: "0.4s" }}>
-          <div className="horizontal-fade-scroll flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 pb-4 md:gap-4">
+          <div
+            ref={scrollRef}
+            className="horizontal-fade-scroll media-scroll-track flex gap-3 overflow-x-auto scroll-px-4 pb-4 md:gap-4"
+          >
             {photos.map((photo, index) => (
               <article
                 key={photo.src}
-                className="group relative w-[84vw] max-w-[360px] flex-none snap-start overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[360px] sm:max-w-none lg:w-[380px]"
+                className="group relative w-[84vw] max-w-[360px] flex-none overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur-md sm:w-[360px] sm:max-w-none lg:w-[380px]"
               >
                 <img
                   src={photo.src}
@@ -71,6 +78,8 @@ const PhotosSection = () => {
               </article>
             ))}
           </div>
+
+          <HorizontalScrollBar trackRef={scrollRef} label="Percorrer fotos" />
         </div>
       </div>
     </section>

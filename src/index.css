@@ -177,7 +177,7 @@
     display: none;
   }
 
-  .video-scroll-track {
+  .media-scroll-track {
     scroll-behavior: auto;
     scroll-snap-type: none;
   }
@@ -331,28 +331,28 @@
     width: clamp(220px, 62vw, 300px);
   }
 
-  .video-scrollbar-wrap {
+  .media-scrollbar-wrap {
     @apply mx-auto mt-2 flex w-full max-w-md px-3 md:mt-3;
   }
 
-  .video-scrollbar-shell {
+  .media-scrollbar-shell {
     @apply relative h-[5px] w-full cursor-ew-resize overflow-visible rounded-full bg-white/[0.16] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35;
     touch-action: none;
   }
 
-  .video-scrollbar-shell::before {
+  .media-scrollbar-shell::before {
     content: "";
     position: absolute;
     inset: -0.9rem 0;
   }
 
-  .video-scrollbar-fill {
+  .media-scrollbar-fill {
     @apply pointer-events-none absolute inset-y-0 left-0 rounded-full;
     background: linear-gradient(90deg, hsl(var(--primary) / 0.4), hsl(var(--foreground) / 0.72));
     box-shadow: 0 0 14px hsl(var(--primary) / 0.14);
   }
 
-  .video-scrollbar-thumb {
+  .media-scrollbar-thumb {
     @apply pointer-events-none absolute top-1/2 h-[7px] w-9 rounded-full;
     transform: translate(-50%, -50%);
     background: hsl(var(--foreground) / 0.86);
@@ -360,8 +360,8 @@
     transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
   }
 
-  .video-scrollbar-shell:hover .video-scrollbar-thumb,
-  .video-scrollbar-shell:focus-visible .video-scrollbar-thumb {
+  .media-scrollbar-shell:hover .media-scrollbar-thumb,
+  .media-scrollbar-shell:focus-visible .media-scrollbar-thumb {
     transform: translate(-50%, -50%) scaleX(1.1);
     background: hsl(var(--foreground) / 0.96);
     box-shadow: 0 0 0 5px hsl(var(--foreground) / 0.08), 0 10px 22px hsl(var(--background) / 0.42);
